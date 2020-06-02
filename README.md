@@ -14,8 +14,16 @@ $ docker build --no-cache -t online-training-platform .
 3. Run all containers by Docker Composer:
 $ docker-composer up
 4. Rename `temp.env` file to `.env` 
-5. They're ready to use once you see this message on the ternimal:
-
+5. They're ready to use once you see these message on the ternimal:
+```
+frontend    | You can now view hello-react in the browser.
+frontend    | 
+frontend    |   Local:            http://localhost:3000
+frontend    |   On Your Network:  http://172.26.0.5:3000
+frontend    | 
+frontend    | Note that the development build is not optimized.
+frontend    | To create a production build, use yarn build.
+```
 6. You can start to use this web app by this URL:
     http://localhost:80
 

@@ -24,11 +24,6 @@ const ScTextField = styled.input.attrs({ className: 'input' })`
   width: 300px;
 `
 
-function submitSearchForm(e) {
-  e.preventDefault()
-  console.log(e)
-}
-
 const HomePage = ({ history }) => {
   const [serverResponse, setServerResponse] = useState(null)
   const courseList = has(serverResponse, 'message') ? null : serverResponse
@@ -40,7 +35,6 @@ const HomePage = ({ history }) => {
       <NavBar sessionContext={sessionContext} />
       <ScTitle>Find your course here...</ScTitle>
       <ScWrapper
-        onSubmit={submitSearchForm}
         onSubmit={async event => {
           event.preventDefault()
           const input = {}

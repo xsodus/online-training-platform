@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import useSession from '../hooks/useSession'
-import get from 'lodash/get'
 import axios from 'axios'
 
 const ScForm = styled.form`
@@ -22,7 +21,7 @@ const CourseForm = ({ history, mode, ...restProps }) => {
   const [description, setDescription] = useState(restProps.description)
   const [startTime, setStartTime] = useState(restProps.startTime)
   const [endTime, setEndTime] = useState(restProps.endTime)
-  const [studentNum, setStudentNum] = useState(restProps.studentNum)
+  const [studentNum] = useState(restProps.studentNum)
   const [subject, setSubject] = useState(restProps.subject)
   return (
     <ScForm

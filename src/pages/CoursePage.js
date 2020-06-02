@@ -30,7 +30,7 @@ const CoursePage = ({ history, match }) => {
   }
   useEffect(() => {
     if (serverResponse === null) getUserData()
-  }, [serverResponse])
+  })
   if (serverResponse === null && id > 0) return null
   return (
     <>

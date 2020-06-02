@@ -30,7 +30,7 @@ const ProfilePage = ({ history }) => {
   }
   useEffect(() => {
     if (serverResponse === null) getUserData()
-  }, [serverResponse])
+  })
   if (serverResponse === null) return null
   else {
     return (
