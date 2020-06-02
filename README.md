@@ -41,9 +41,10 @@ frontend    | To create a production build, use yarn build.
 ```
 2. Instructor Account:
 ```
-   Username: instructor
+   Username: Instructor
    Password: test
 ```
+3. If you want to create a new account, please add a new record to `users` table and the `password` value should be MD5 hashed before inserting.
    
 
 # Features
