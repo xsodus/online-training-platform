@@ -8,11 +8,17 @@ You need to install these tools before setup this project:
 
 # Setup
 1. Go to the base directory then setup dependencies with yarn command:
+```
 $ yarn
+```
 2. Build online-training-platform image:
+```
 $ docker build --no-cache -t online-training-platform .
+```
 3. Run all containers by Docker Composer:
+```
 $ docker-composer up
+```
 4. Rename `temp.env` file to `.env` 
 5. They're ready to use once you see these message on the ternimal:
 ```
