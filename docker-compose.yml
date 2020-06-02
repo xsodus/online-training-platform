@@ -1,0 +1,61 @@
+version: '3'
+services:
+  backend:
+    image: online-training-platform
+    container_name: backend
+    volumes:
+      - './server:/var/apps/online_training_platform/server'
+    ports:
+      - '9000:9000'
+    working_dir: '/var/apps/online_training_platform'
+    command: /bin/bash -c "yarn startBackend"
+    restart: always
+    depends_on:
+      - redis
+      - mysql
+    env_file:
+      - '.env'
+
+  frontend:
+    image: online-training-platform
+    container_name: frontend
+    volumes:
+      - './src:/var/www/html/online_training_platform/src'
+      - './public:/var/www/html/online_training_platform/public'
+      - './package.json:/var/www/html/online_training_platform/package.json'
+    ports:
+      - '80:3000'
+    working_dir: '/var/www/html/online_training_platform'
+    command: /bin/bash -c "yarn && yarn start"
+    restart: always
+    stdin_open: true
+    depends_on:
+      - backend
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-test
+    command: /bin/bash -c "usermod -u ${SUDO_UID} mysql && docker-entrypoint.sh mysqld"
+    restart: always
+    env_file:
+      - '.env'
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    ports:
+      - '3306:3306'
+    volumes:
+      - './data/db/mysql:/var/lib/mysql'
+      - ./data/mysqldump.sql:/docker-entrypoint-initdb.d/dump.sql
+
+  redis:
+    image: redis
+    command: /bin/bash -c "usermod -u ${SUDO_UID} redis && redis-server --save 1 1"
+    container_name: redis-test
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./data/redis:/data
+    restart: always
