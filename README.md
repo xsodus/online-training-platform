@@ -13,12 +13,8 @@ $ docker build --no-cache -t online-training-platform .
 $ docker-composer up
 3. Rename temp.env file to .env 
 4. They're ready to use once you see this message on the ternimal:
-5. Import database.sql to the MYSQL server with this account:
-    hostname: localhost
-    port: 3306
-    username: root
-    password: 
-6. Once you imported the data to the database server, you can start to use this web app by this URL:
+
+5. You can start to use this web app by this URL:
     http://localhost:80
 
 # Accounts
@@ -26,6 +22,8 @@ $ docker-composer up
    Username: akkapon
    Password: skillaneTest256
 2. Instructor Account:
+   Username: instructor
+   Password: test
    
 
 # Features
@@ -40,5 +38,9 @@ $ docker-composer up
 # Docker Containers
 1. The frontend container can be access via http://localhost:80 and you can see the source code at `/src` directory.
 2. The backend container can be access via http://localhost:9000  and you can see the source code at `/server` directory.
-3. The database container can be access via localhost with port 3306.
+3. The database container can be access via localhost with port 3306. Here is a root account:
+    hostname: localhost
+    port: 3306
+    username: root
+    password: appleA12#4
 4. We use the redis server to manage the user session. The session will be expired in 10 minutes if the client does not send any request to the backend server.
