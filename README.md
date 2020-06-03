@@ -15,12 +15,21 @@ $ yarn
 ```
 $ docker build --no-cache -t online-training-platform .
 ```
-3. Run all containers by Docker Composer:
+3. Rename `temp.env` file to `.env` 
+4. Run all containers by Docker Composer:
 ```
 $ docker-composer up
 ```
-4. Rename `temp.env` file to `.env` 
-5. They're ready to use once you see these message on the ternimal:
+5. Import `database.sql` to MySQL server by using this settings to access:
+```
+    hostname: localhost
+    port: 3306
+    username: root
+    password: appleA12#4
+```
+6. Shutdown all docker containers by pressing ctrl+c on keyboard or `docker-compose down` or `docker stop [container_name]` command.
+7. Start all containers again by `docker-composer up` command.
+8. They're ready to use once you see these message on the ternimal:
 ```
 frontend    | You can now view hello-react in the browser.
 frontend    | 
@@ -30,7 +39,7 @@ frontend    |
 frontend    | Note that the development build is not optimized.
 frontend    | To create a production build, use yarn build.
 ```
-6. You can start to use this web app by this URL:
+9. You can start to use this web app by this URL:
     http://localhost:80
 
 # Accounts
