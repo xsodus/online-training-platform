@@ -75,4 +75,4 @@ frontend    | To create a production build, use yarn build.
     username: root
     password: appleA12#4
 ```
-4. We use the redis server to manage the user session. The session will be expired in 10 minutes if the client does not send any request to the backend server.
+4. We use the redis server to manage the user session. It run on port 6379. The session will be expired in 10 minutes if the client does not send any request to the backend server.
