@@ -63,12 +63,12 @@ frontend    | To create a production build, use yarn build.
 # Database Management
 - There are 2 tables that relates to this webapp
   1. users - To store all user data
-  2. courses - to store all course data
+  2. courses - To store all course data
 
 # Docker Containers
-1. The frontend container can be access via http://localhost:80 and you can see the source code at `/src` directory.
-2. The backend container can be access via http://localhost:9000  and you can see the source code at `/server` directory.
-3. The database container can be access via localhost with port 3306. Here is a root account:
+1. The frontend container can be accessed via http://localhost:80 and you can see the source code at `/src` directory.
+2. The backend container can be accessed via http://localhost:9000  and you can see the source code at `/server` directory.
+3. The database container can be accessed via localhost with port 3306. Here is a root account:
 ```
     hostname: localhost
     port: 3306
